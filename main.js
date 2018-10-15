@@ -8,7 +8,7 @@ $(function() {
     $("#vjs_mediaplayer_html5_api").bind('ended',
     function() {
         setTimeout(function() {
-            $('#nextBtn').click();
+            $('.current_play').nextAll('.video')[0].click()
         },
         4000);
         setTimeout(function() {
