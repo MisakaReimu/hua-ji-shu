@@ -1,1 +1,22 @@
-$("body").prepend('<script>$(function(){$(".speedTab15").click();function close_pop(){if($(".popboxes_close").length>0){$(".popboxes_close").click()}}$("#vjs_mediaplayer_html5_api").bind("ended",function(){setTimeout(function(){$(".current_play").nextAll(".video")[0].click()},4000);setTimeout(function(){$(".speedTab15").click()},9000)});setInterval(close_pop,10000)});</script>');
+$(function() {
+    $(".speedTab15").click();
+    function close_pop() {
+        if ($(".popboxes_close").length > 0) {
+            $(".popboxes_close").click();
+        }
+    }
+    function next(){
+        if($('.current_play').find('.progressbar').width() == $('.current_play').find('.progressbar_box').width()){
+            $('.current_play').nextAll('.video')[0].click();
+                setTimeout(function() {
+                    $(".speedTab15").click();
+                },
+                4000);
+        }
+    }
+    function loop() {
+        close_pop();
+        next();
+    }
+    setInterval(loop, 10000);
+});
